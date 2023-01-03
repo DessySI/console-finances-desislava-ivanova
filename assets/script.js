@@ -88,3 +88,36 @@ var finances = [
 ['Jan-2017', 138230],
 ['Feb-2017', 671099]
 ];
+
+console.log("Financial Analysis\n----------------------------");
+
+// Variables
+var netTotal = 0;
+var averageChanges = 0;
+var greatestIncrease;
+var greatestDecrease;
+var calculation;
+
+// The total number of months included in the dataset.
+console.log("Total Months: " + finances.length);
+
+// The net total amount of Profit/Losses over the entire period.
+for (let i = 0; i < finances.length; i++) {
+    netTotal =+ finances[i][1];
+}
+console.log("Total: $" + netTotal);
+
+// The average of the changes in Profit/Losses over the entire period.
+averageChanges = netTotal / finances.length;
+averageChanges = averageChanges.toFixed(2);
+console.log("Average  Change: $" + averageChanges);
+
+// The greatest increase in profits (date and amount) over the entire period.
+calculation = finances.sort((a, b) => b[1]-a[1]);
+greatestIncrease = calculation[0];
+console.log(`Greatest Increase in Profits: ${greatestIncrease[0]} ($${greatestIncrease[1]})`);
+
+// The greatest decrease in losses (date and amount) over the entire period.
+calculation = finances.sort((a, b) => a[1]-b[1]);
+greatestDecrease = calculation[0];
+console.log(`Greatest Decrease in Profits: ${greatestDecrease[0]} ($${greatestDecrease[1]})`);
