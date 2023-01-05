@@ -100,24 +100,36 @@ var calculation;
 
 // The total number of months included in the dataset.
 console.log("Total Months: " + finances.length);
+var totalMonths = document.getElementById ('totalMonths');
+totalMonths.textContent = finances.length;
+
 
 // The net total amount of Profit/Losses over the entire period.
 for (let i = 0; i < finances.length; i++) {
     netTotal =+ finances[i][1];
 }
 console.log("Total: $" + netTotal);
+var total = document.getElementById ('total');
+total.textContent = ('$ ' + netTotal);
 
 // The average of the changes in Profit/Losses over the entire period.
 averageChanges = netTotal / finances.length;
 averageChanges = averageChanges.toFixed(2);
 console.log("Average  Change: $" + averageChanges);
+var avChanges = document.getElementById ('avChanges');
+avChanges.textContent = ('$ ' + averageChanges);
 
 // The greatest increase in profits (date and amount) over the entire period.
-calculation = finances.sort((a, b) => b[1]-a[1]);
+calculation = finances.sort((x, y) => y[1]-x[1]);
 greatestIncrease = calculation[0];
-console.log(`Greatest Increase in Profits: ${greatestIncrease[0]} ($${greatestIncrease[1]})`);
+console.log('Greatest Increase in Profits: ' + greatestIncrease[0] + '($' + greatestIncrease[1] + ')');
+var increase = document.getElementById ('Increase');
+increase.textContent = (greatestIncrease[0] + '($' + greatestIncrease[1] + ')');
+
 
 // The greatest decrease in losses (date and amount) over the entire period.
-calculation = finances.sort((a, b) => a[1]-b[1]);
+calculation = finances.sort((x, y) => x[1]-y[1]);
 greatestDecrease = calculation[0];
-console.log(`Greatest Decrease in Profits: ${greatestDecrease[0]} ($${greatestDecrease[1]})`);
+console.log('Greatest Decrease in Profits: ' + greatestDecrease[0] + '($' + greatestDecrease[1] + ')');
+var decrease = document.getElementById ('Decrease');
+decrease.textContent = (greatestDecrease[0] + '($' + greatestDecrease[1] + ')');
