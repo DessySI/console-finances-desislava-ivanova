@@ -107,8 +107,6 @@ total.textContent = ('$ ' + netTotal);
 
 // The average of the changes in Profit/Losses over the entire period.
 
-//const average = arr.reduce((a, b) => a + b, 0) / arr.length;
-
 var averageChanges = 0;
 averageChanges = netTotal / finances.length;
 averageChanges = averageChanges.toFixed(2);
