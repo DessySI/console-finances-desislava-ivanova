@@ -89,6 +89,8 @@ var finances = [
 ['Feb-2017', 671099]
 ];
 
+
+
 console.log("Financial Analysis\n----------------------------");
 // The total number of months included in the dataset.
 console.log("Total Months: " + finances.length);
@@ -98,7 +100,7 @@ totalMonths.textContent = finances.length;
 
 // The net total amount of Profit/Losses over the entire period.
 var netTotal = 0;
-for (let i = 0; i < finances.length; i++) {
+for (var i = 0; i < finances.length; i++) {
     netTotal += finances[i][1];
 }
 console.log("Total: $" + netTotal);
@@ -106,13 +108,17 @@ var total = document.getElementById ('total');
 total.textContent = ('$ ' + netTotal);
 
 // The average of the changes in Profit/Losses over the entire period.
+var change = 0
+for (var i = 1 ; i < finances.length; i++) {
+    var calculator = finances[i][1] - finances[i-1][1];
+    change += calculator;
+    var averageChange = change / (finances.length - 1);
+    averageChange = averageChange.toFixed(2);
+}
 
-var averageChanges = 0;
-averageChanges = netTotal / finances.length;
-averageChanges = averageChanges.toFixed(2);
-console.log("Average  Change: $" + averageChanges);
-var avChanges = document.getElementById ('avChanges');
-avChanges.textContent = ('$ ' + averageChanges);
+console.log("Average Change: $" + averageChange);
+var total = document.getElementById ('averageChange');
+total.textContent = ('$ ' + averageChange);
 
 // The greatest increase in profits (date and amount) over the entire period.
 var greatestIncrease;
@@ -123,7 +129,6 @@ console.log('Greatest Increase in Profits: ' + greatestIncrease[0] + '($' + grea
 var increase = document.getElementById ('increase');
 increase.textContent = (greatestIncrease[0] + '($' + greatestIncrease[1] + ')');
 
-
 // The greatest decrease in losses (date and amount) over the entire period.
 var greatestDecrease;
 calculation = finances.sort((x, y) => x[1]-y[1]);
@@ -131,3 +136,11 @@ greatestDecrease = calculation[0];
 console.log('Greatest Decrease in Profits: ' + greatestDecrease[0] + '($' + greatestDecrease[1] + ')');
 var decrease = document.getElementById ('decrease');
 decrease.textContent = (greatestDecrease[0] + '($' + greatestDecrease[1] + ')');
+
+
+
+
+
+ 
+ 
+   
