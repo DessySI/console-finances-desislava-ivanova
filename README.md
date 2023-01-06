@@ -12,6 +12,8 @@ This is HTML and JavaScript project, where you can analyze your financial record
 
 To see the results just click on the link below and all calculations will appear on the screen, you can also check this using -> inspect -> console.
 
+![alt text](assets/images/Console-Finances.png)
+
 ## Credits
 
 "N/A"
